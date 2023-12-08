@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DoBu Martial Arts</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="logo" a href="/images/DoBulogo280by80.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="background: linear-gradient(90deg, rgba(1,1,12,1) 27%, rgba(107,114,124,1) 100%)">
+      <div class="container-fluid">
+        <a class="navbar-brand">
+          <img src="images/DoBulogo280by80.png" style="display: inline-block;">DoBu | where strength meets discipline</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="instructors.html">Instructors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="classes.html">Classes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="prices.html">Prices</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact us</a>
+        </li>
+        <li><a class="btn btn-outline-dark btn-warning btn-lg" href="loginPage.html">Member Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Navbar -->
+  </header>
+</head>
+
+
+<div class="small-container">
+    <h2 class="title">Member Login</h2>
+    <p>This page is under construction</p>
+      <div class="loginContainer">
+        <br />
+        <label for="uname"><b>Username: </b></label>
+        <input id="username" type="text" placeholder="Enter Email" name="uname" required>
+    <br>
+        <label for="psw"><b>Password: </b></label>
+        <input id="password" type="password" placeholder="Enter Password" name="psw" required>
+            
+        <button type="submit" onclick='authenticate()'>Login</button>
+        <br>
+        <label id="attempts"><small></small> </label>
+            </div>
+    <div class="row">
+<div class="col-2"> 
+</div>
+</div>
+    
+    
+</div>
+<body>
+    <!----Script for the Menu---->
+    <script>
+      var MenuItems = document.getElementById("MenuItems");
+      
+      MenuItems.style.maxHeight = "0px";
+      
+      function menutoggle(){
+          if(MenuItems.style.maxHeight == "0px")
+          {
+              MenuItems.style.maxHeight = "200px";
+          }
+          else
+          {
+              MenuItems.style.maxHeight = "0px";
+          }
+      }
+      var loggedIn = false;
+
+var attempts = 0;
+
+function authenticate() {
+var username = document.getElementById('username').value;
+var password = document.getElementById('password').value;
+
+loggedIn = login(username,password);
+status();
+}
+
+function login(username, password) {
+  var stored_user = "user@dobu";
+  var storedPassword = 'P@55W0rd';
+
+  return password == storedPassword && stored_user == username;
+}
+
+function status() {
+
+
+
+if(loggedIn) {
+  document.getElementById('attempts').innerHTML = "Signing in as DoBu User...";
+  reDirectLoggedIn()
+} else {
+  attempts++;
+  document.getElementById('attempts').innerHTML = "Incorrect Username or Password\nAttempted Signin:  " + attempts;
+  
+}
+}
+
+function reDirectLoggedIn() {
+location.replace("loggedIn.html")
+}
+  </script>
+
+   <!--Footer-->
+ <footer class="bg-dark text-center text-white">
+  <section class="mb-4">
+    <div class="wrapper">
+      <a href="#" class="icon facebook">
+        <div class="tooltip">Facebook</div>
+        <span><i class="fab fa-facebook-f"></i></span>
+      </a>
+            <a href="#" class="icon instagram">
+        <div class="tooltip">Instagram</div>
+        <span><i class="fab fa-instagram"></i></span>
+      </a>
+           <a href="#" class="icon youtube">
+        <div class="tooltip">Youtube</div>
+        <span><i class="fab fa-youtube"></i></span>
+      </a>
+    </div>
+       </section>
+    
+      <div class="text-center p-3">
+        <a class="text-white" href="index.html">Copyright 2023 by Web Space</a>
+         <a class="link" href="sitemap.html" data-target="sitemap">Site Map</a>
+          <a class="link" href="privacyPolicy.html" data-target="privacy">Privacy Policy</a>  
+    </div>
+  </footer>
